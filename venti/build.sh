@@ -23,10 +23,6 @@ function bootstrap {
         --keyring "/usr/share/keyrings/ubuntu-archive-keyring.gpg" \
         "$SUITE" "$ROOTFS" "$MIRROR"
 
-    # Installing dumb-init
-    curl -o dumb-init.deb -L "$DUMBINIT_URL"
-    dpkg --root "$ROOTFS" -i dumb-init.deb
-
     cp -r -t "$ROOTFS" "$SCRIPT_DIR"/rootfs/*
 
     echo 'Acquire::Language { "en"; };' >  "$ROOTFS/etc/apt/apt.conf.d/99translations"

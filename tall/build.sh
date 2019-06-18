@@ -17,7 +17,7 @@ function bootstrap {
     # Packages required for building rootfs
     apt-get update
     apt-get install -y --no-install-recommends \
-        cdebootstrap curl ca-certificates
+        cdebootstrap curl ca-certificates dumb-init
 
     apt-get download \
         busybox \
@@ -25,9 +25,7 @@ function bootstrap {
         ca-certificates \
         libgcc1
 
-    # Installing dumb-init and downloaded debs
-    curl -o dumb-init.deb -L "$DUMBINIT_URL"
-
+    # Install downloaded debs
     for pkg in *.deb; do
         dpkg-deb --fsys-tarfile "$pkg" | tar -xf - -C "$ROOTFS";
     done
