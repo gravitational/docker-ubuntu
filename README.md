@@ -1,4 +1,4 @@
-# Customized Docker Debian images
+# Customized Docker Ubuntu images
 
 ## Customizations
 
@@ -12,7 +12,7 @@ image slim, add this to the end of your Dockerfile:
 RUN test -f /cleanup.sh && sh /cleanup.sh
 ```
 
-## Debian Tall [![Docker Repository on Quay](https://quay.io/repository/gravitational/debian-tall/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/debian-tall)
+## Ubuntu Tall [![Docker Repository on Quay](https://quay.io/repository/gravitational/ubuntu-tall/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/ubuntu-tall)
 
 Contains:
 
@@ -23,20 +23,20 @@ Contains:
 Main purpose of this image is to run Go or static-linked binaries. No package
 manager is present.
 
-## Debian Grande [![Docker Repository on Quay](https://quay.io/repository/gravitational/debian-grande/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/debian-grande)
+## Ubuntu Grande [![Docker Repository on Quay](https://quay.io/repository/gravitational/ubuntu-grande/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/ubuntu-grande)
 
 Contains cut debootstrapped system (`minbase` variant). `dpkg` works here.
 
-## Debian Venti [![Docker Repository on Quay](https://quay.io/repository/gravitational/debian-venti/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/debian-venti)
+## Ubuntu Venti [![Docker Repository on Quay](https://quay.io/repository/gravitational/ubuntu-venti/status "Docker Repository on Quay")](https://quay.io/repository/gravitational/ubuntu-venti)
 
 Image with Go build environment and batteries included. For start as Docker-in-docker use `wrapdocker` as entrypoint or just run it inside container.
 
 ## Usage
 
 ```shell
-make debian-tall
-make debian-grande
-make debian-venti
+make ubuntu-tall
+make ubuntu-grande
+make ubuntu-venti
 ```
 
 or simply
