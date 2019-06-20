@@ -42,15 +42,9 @@ function bootstrap {
     chroot "$ROOTFS" /usr/sbin/locale-gen en_US.UTF-8
     chroot "$ROOTFS" /usr/sbin/dpkg-reconfigure locales
 
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"' main restricted' > "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-updates main restricted' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"' universe' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-updates universe' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"' multiverse' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-updates multiverse' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://security.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-security main restricted' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://security.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-security universe' >> "$ROOTFS/etc/apt/sources.list"
-    echo 'deb http://security.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-security multiverse' >> "$ROOTFS/etc/apt/sources.list"
+    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"' main restricted universe multiverse' > "$ROOTFS/etc/apt/sources.list"
+    echo 'deb http://archive.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-updates main restricted universe multiverse' >> "$ROOTFS/etc/apt/sources.list"
+    echo 'deb http://security.ubuntu.com/ubuntu/ '"${UBUNTU_VERSION}"'-security main restricted universe multiverse' >> "$ROOTFS/etc/apt/sources.list"
 
     chroot "$ROOTFS" /usr/bin/apt-get update
     chroot "$ROOTFS" /usr/bin/apt-get dist-upgrade --yes
@@ -75,6 +69,7 @@ function bootstrap {
 function cleanup {
     # Remove unused packages
     chroot "$ROOTFS" dpkg -P --force-remove-essential \
+        cdebootstrap-helper-rc.d \
         e2fsprogs
     
     # cleanup.sh must be called ONBUILD too, DRY

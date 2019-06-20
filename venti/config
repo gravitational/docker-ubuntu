@@ -2,5 +2,5 @@ SUITE=${SUITE:-$UBUNTU_VERSION}
 MIRROR=${MIRROR:-http://archive.ubuntu.com/ubuntu}
 FLAVOUR=${FLAVOUR:-minimal}
 TMPFS_SIZE=${TMPFS_SIZE:-1610612736}
-BOOTSTRAP_INCLUDE=${BOOTSTRAP_INCLUDE:-ca-certificates,dumb-init,less,locales,iputils-ping,iproute2,sudo}
+BOOTSTRAP_INCLUDE=${BOOTSTRAP_INCLUDE:-ca-certificates,dumb-init,less,locales,iputils-ping,iproute2}
 PKG_INCLUDE=${PKG_INCLUDE:-apt-transport-https curl gcc git iptables libc6-dev make openssh-client psmisc python python-dev python-pip rsync unzip vim-tiny wget}

@@ -1,7 +1,7 @@
 FROM ubuntu-venti:bionic
 MAINTAINER Gravitational Inc <ops@gravitational.com>
 
-ARG GOVERSION=1.5.4
+ARG GOVERSION=1.12.6
 
 ENV GOROOT=/go \
     GOPATH=/gopath \
