@@ -1,0 +1,5 @@
+SUITE=${SUITE:-$UBUNTU_VERSION}
+MIRROR=${MIRROR:-http://archive.ubuntu.com/ubuntu}
+FLAVOUR=${FLAVOUR:-minimal}
+TMPFS_SIZE=${TMPFS_SIZE:-1073741824}
+BOOTSTRAP_INCLUDE=${BOOTSTRAP_INCLUDE:-ca-certificates,dumb-init,less,locales,iputils-ping,iproute2}
