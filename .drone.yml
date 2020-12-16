@@ -92,3 +92,8 @@ services:
 volumes:
   - name: dockersock
     temp: {}
+---
+kind: signature
+hmac: ab9e6600e4a465bc6c7d9fda3d9d424f1500d61ffa21befd971398cd26465672
+
+...
